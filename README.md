@@ -11,9 +11,9 @@ for _all_ Udacity students.
 ## Instructions
 
 To get started:
-# to do clone of project
-# be sure that instaled Node.js
-# run file index.html
+#### to do clone of project
+#### be sure that instaled Node.js
+#### run file index.html
 
 You can run it and see how it is work and how is working tests.
 Code of all tests are in jasmine/spec/feedreader.js.
