@@ -1,10 +1,19 @@
 $(function() {
 
   describe('RSS Feeds', function() {
-    allFeeds.forEach(function(item, i, allFeeds) {
 
 
-      /*  TODO: a tests check that the URLs defined and it is not empty*/
+    /*TODO: a test checks that allFeeds defined and is not empty*/
+    it('allFeeds defined and is not empty', function() {
+      expect(allFeeds).toBeDefined();
+      expect(allFeeds.length).not.toBe(0);
+    });
+
+
+    allFeeds.forEach(function(item) {
+
+
+      /*TODO: a tests check that the URLs was defined and it is not empty*/
       it('url defined', function() {
         expect(item.url).toBeDefined();
       });
@@ -14,7 +23,7 @@ $(function() {
       });
 
 
-      /* TODO: a tests check that the names defined and it is not empty*/
+      /*TODO: a tests check that the names defined and it is not empty*/
       it('name defined', function() {
         expect(item.name).toBeDefined();
       });
@@ -43,7 +52,7 @@ $(function() {
     }
 
 
-    /*TODO: a tests checks that the menu changes visibility at click*/
+    /*TODO: a tests check that the menu changes visibility at click*/
     it('onclick menu will show', function() {
       expect(clicks[0]).not.toMatch(classBody);
     });
@@ -68,7 +77,7 @@ $(function() {
     });
 
 
-    /*TODO: a test checks that "feed" include "entry"*/
+    /*TODO: a test checks that "entry" belongs "feed"*/
     it('entry belongs feed', function() {
       expect(parentNameEntry).toBe('feed');
     });
@@ -78,7 +87,6 @@ $(function() {
     it('container.entry is not empty', function() {
       expect(entry).not.toBe(0);
     });
-
   });
 
 
@@ -88,23 +96,18 @@ $(function() {
 
     beforeEach(function(done) {
       loadFeed(0, function() {
-        firstCall = $('.feed').html;
-        console.log (firstCall);
+        firstCall = $('.feed').html();
 
-        done();
-      });
+        loadFeed(1, function() {
+          secondCall = $('.feed').html();
 
-      loadFeed(1, function() {
-        secondCall = $('.feed').html;
-        console.log (secondCall);
-
-        done();
+          done();
+        });
       });
     });
 
 
-    /*TODO: a test that ensures when a new feed is loaded the loadFeed*/
-    /*function that the content actually changes.*/
+    /*TODO: a test checks that feeds actually changed*/
     it('feeds changes', function() {
       expect(firstCall === secondCall).toBe(false);
     });

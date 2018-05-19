@@ -20,5 +20,5 @@ Code of all tests are in jasmine/spec/feedreader.js.
 
 ## Description
 
-Here is 9 tests in 4 suites. In feedreader.js you would find
+Here is 11 tests in 4 suites. In feedreader.js you would find
 detailed comments for them.
