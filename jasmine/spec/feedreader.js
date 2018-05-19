@@ -4,8 +4,7 @@ $(function() {
     allFeeds.forEach(function(item, i, allFeeds) {
 
 
-      /*  TODO: a tests that loops through each feed in the allFeeds object*/
-      /*and ensures it has a URL defined and that the URL is not empty.*/
+      /*  TODO: a tests check that the URLs defined and it is not empty*/
       it('url defined', function() {
         expect(item.url).toBeDefined();
       });
@@ -15,8 +14,7 @@ $(function() {
       });
 
 
-      /* TODO: a tests that loops through each feed in the allFeeds object and*/
-      /*ensures it has a name defined and that the name is not empty.*/
+      /* TODO: a tests check that the names defined and it is not empty*/
       it('name defined', function() {
         expect(item.name).toBeDefined();
       });
@@ -32,8 +30,7 @@ $(function() {
     let classBody = $('body').hasClass('menu-hidden');
 
 
-    /*TODO: a test ensures the menu element is*/
-    /*hidden by default.*/
+    /*TODO: a test checks that the menu element is hidden by default*/
     it('by default menu is hidden', function() {
       expect(classBody).toBe(true);
     });
@@ -46,8 +43,7 @@ $(function() {
     }
 
 
-    /*TODO: a test ensures the menu changes visibility when the menu icon is clicked*/
-    /*and does the menu display when clicked and does it hide when clicked again.*/
+    /*TODO: a tests checks that the menu changes visibility at click*/
     it('onclick menu will show', function() {
       expect(clicks[0]).not.toMatch(classBody);
     });
@@ -60,17 +56,25 @@ $(function() {
 
   describe('Initial Entries', function() {
     let entry = 0;
+    let parentNameEntry = 0;
 
     beforeEach(function(done) {
       loadFeed(0, function() {
         entry = $('.entry').length;
+        parentNameEntry = $($('.entry').parent().parent()).prop('className');
+
         done();
       });
     });
 
 
-    /*TODO: a test ensures when the loadFeed function is called and completes its work,*/
-    /*there is at least a single .entry element within the .feed container.*/
+    /*TODO: a test checks that "feed" include "entry"*/
+    it('entry belongs feed', function() {
+      expect(parentNameEntry).toBe('feed');
+    });
+
+
+    /*TODO: a test checks that "entry" is not empty*/
     it('container.entry is not empty', function() {
       expect(entry).not.toBe(0);
     });
